@@ -1,1 +1,443 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10140f">
+<title>TRU Classics — Classical Books Shelf</title>
+<style>
+:root {
+  --bg: #10140f;
+  --ink: #e7f0dc;
+  --dim: #a8b89a;
+  --line: #2c3824;
+  --leaf: #c6d86a;
+  --gold: #e8c96a;
+  --card: #1a2216;
+  --soft: #121a10;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.55 Georgia, serif;
+}
+header, main {
+  width: min(1080px, 100%);
+  margin: 0 auto;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+header {
+  padding-top: 32px;
+  padding-bottom: 18px;
+}
+h1 {
+  font-size: clamp(28px, 5vw, 40px);
+  letter-spacing: .1em;
+  margin: 0;
+  font-weight: normal;
+}
+h1 span { color: var(--gold); }
+.sub {
+  color: var(--dim);
+  font-size: 15px;
+  margin: 10px 0 6px;
+  max-width: 720px;
+}
+.note {
+  color: var(--dim);
+  font-size: 13px;
+  margin: 8px 0 0;
+  max-width: 720px;
+}
+.quicklinks {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.quicklinks a {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px;
+  color: var(--dim);
+  font: 12px/1.3 system-ui, sans-serif;
+  text-decoration: none;
+}
+.quicklinks a:hover { color: var(--gold); border-color: var(--gold); }
+main { padding-top: 8px; padding-bottom: 56px; }
+a { color: inherit; text-decoration: none; }
+.searchbox {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin: 18px 0 28px;
+}
+.searchbox label {
+  display: block;
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+.searchbox input {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid #526144;
+  border-radius: 9px;
+  background: #090d08;
+  color: var(--ink);
+  padding: 10px 13px;
+  font: 16px system-ui, sans-serif;
+}
+.search-status {
+  color: var(--dim);
+  font: 12px system-ui, sans-serif;
+  margin-top: 7px;
+}
+h2 {
+  font-size: 20px;
+  letter-spacing: .04em;
+  font-weight: normal;
+  margin: 28px 0 8px;
+}
+h2 span { color: var(--gold); }
+.section-intro {
+  color: var(--dim);
+  margin: 0 0 14px;
+  max-width: 860px;
+  font-size: 14px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 12px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 15px;
+  min-width: 0;
+}
+.card[hidden] { display: none !important; }
+.k {
+  color: var(--leaf);
+  font: 11px/1.4 system-ui, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.big {
+  font-size: 18px;
+  margin: 4px 0 2px;
+}
+.author {
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.desc {
+  color: #c1cdb7;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.src {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  font: 12px/1.4 system-ui, sans-serif;
+}
+.src a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.src a:hover { color: var(--leaf); }
+footer {
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--dim);
+  font-size: 13px;
+}
+footer a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.law {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 24px 0;
+  font-size: 14px;
+  color: var(--dim);
+}
+.law strong { color: var(--gold); }
+</style>
+</head>
+<body>
+<header>
+  <h1>TRU <span>CLASSICS</span></h1>
+  <p class="sub">A public-domain classical books shelf for the TRU family. Source-bound. Offline-first. A gap stays a gap.</p>
+  <p class="note">Curated core set drawn primarily from Standard Ebooks quality editions and Project Gutenberg public-domain texts. Ready to be packed into local TRU lanes.</p>
+  <nav class="quicklinks">
+    <a href="#philosophy">Philosophy</a>
+    <a href="#epic">Epic & Poetry</a>
+    <a href="#later">Later Classics</a>
+    <a href="#how">How to pack offline</a>
+  </nav>
+</header>
+
+<main>
+  <div class="searchbox">
+    <label for="q">Type to search the shelf</label>
+    <input id="q" type="search" placeholder="Try: aurelius, plato, odyssey, ethics…" autocomplete="off">
+    <div id="status" class="search-status" role="status"></div>
+  </div>
+
+  <div class="law">
+    <strong>Lane law</strong><br>
+    Only complete public-domain texts. Prefer the cleanest available English translation that is free of modern copyright. No summaries, no AI rewriting, no “modernized” versions that change the meaning. Record the exact source edition used. A gap stays a gap.
+  </div>
+
+  <section id="philosophy" data-section>
+    <h2><span>01</span> · Philosophy & Wisdom</h2>
+    <p class="section-intro">Core works of the Western philosophical tradition that repay repeated reading.</p>
+    <div class="grid" id="phil-grid"></div>
+  </section>
+
+  <section id="epic" data-section>
+    <h2><span>02</span> · Epic & Foundational Literature</h2>
+    <p class="section-intro">The poems that shaped the imagination of the West.</p>
+    <div class="grid" id="epic-grid"></div>
+  </section>
+
+  <section id="later" data-section>
+    <h2><span>03</span> · Later Classics</h2>
+    <p class="section-intro">Selected later works that continue the conversation.</p>
+    <div class="grid" id="later-grid"></div>
+  </section>
+
+  <section id="how">
+    <h2><span>04</span> · How to pack these offline for TRU</h2>
+    <div class="law">
+      <strong>Recommended workflow</strong><br><br>
+      1. Prefer Standard Ebooks when available (cleanest modern public-domain formatting).<br>
+      2. Otherwise use Project Gutenberg HTML or plain text.<br>
+      3. Download the HTML / EPUB / TXT.<br>
+      4. Convert or wrap into a single-file TRU-style reader (or keep as a modular data pack + thin shell).<br>
+      5. Add a short provenance card: title, author, translator, source URL, date fetched, license note.<br>
+      6. Place under a new lane such as <code>tru-classics</code> or as cards under the existing shelf.<br><br>
+      The goal is the same as every other TRU lane: one place a person can open with no internet and still have the source.
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      Part of the TRU family · 
+      <a href="https://github.com/splashdown1/tru-shelf" target="_blank" rel="noopener">tru-shelf</a> · 
+      Public domain sources only · 
+      Built for offline sovereignty
+    </p>
+  </footer>
+</main>
+
+<script>
+const BOOKS = [
+  {
+    section: "phil",
+    k: "STOIC",
+    title: "Meditations",
+    author: "Marcus Aurelius",
+    desc: "Private notes of a Roman emperor on duty, reason, and how to live. The clearest short introduction to practical Stoicism.",
+    links: [
+      { label: "TRU Pack (offline)", url: "packs/meditations.html" },
+      { label: "Gutenberg source", url: "https://www.gutenberg.org/ebooks/2680" }
+    ],
+    search: "meditations marcus aurelius stoic philosophy emperor"
+  },
+  {
+    section: "phil",
+    k: "PLATO",
+    title: "The Republic",
+    author: "Plato (trans. Benjamin Jowett)",
+    desc: "Justice, the ideal city, the philosopher-king, the cave. Still the central work of Western political philosophy.",
+    links: [
+      { label: "TRU Pack (offline)", url: "packs/republic.html" },
+      { label: "Gutenberg source", url: "https://www.gutenberg.org/ebooks/1497" }
+    ],
+    search: "republic plato jowett justice philosopher king cave"
+  },
+  {
+    section: "phil",
+    k: "ARISTOTLE",
+    title: "Nicomachean Ethics",
+    author: "Aristotle",
+    desc: "Happiness as activity in accordance with virtue. Friendship, practical wisdom, the mean. The foundation of virtue ethics.",
+    links: [
+      { label: "Gutenberg", url: "https://www.gutenberg.org/ebooks/8438" },
+      { label: "Online Library of Liberty", url: "https://oll.libertyfund.org/titles/peters-the-nicomachean-ethics" }
+    ],
+    search: "nicomachean ethics aristotle virtue happiness friendship"
+  },
+  {
+    section: "phil",
+    k: "PLATO",
+    title: "Apology, Crito, Phaedo",
+    author: "Plato",
+    desc: "The trial and death of Socrates. Short, complete, and still the most moving introduction to the examined life.",
+    links: [
+      { label: "Apology (MIT)", url: "http://classics.mit.edu/Plato/apology.html" },
+      { label: "Crito (MIT)", url: "http://classics.mit.edu/Plato/crito.html" },
+      { label: "Phaedo (MIT)", url: "http://classics.mit.edu/Plato/phaedo.html" }
+    ],
+    search: "apology crito phaedo socrates plato trial death"
+  },
+  {
+    section: "phil",
+    k: "STOIC",
+    title: "Enchiridion (Handbook)",
+    author: "Epictetus",
+    desc: "Short manual of Stoic practice. What is up to us and what is not. Extremely dense and portable.",
+    links: [
+      { label: "Gutenberg", url: "https://www.gutenberg.org/ebooks/45109" },
+      { label: "MIT / other mirrors", url: "http://classics.mit.edu/Epictetus/epicench.html" }
+    ],
+    search: "enchiridion epictetus handbook stoic"
+  },
+  {
+    section: "epic",
+    k: "HOMER",
+    title: "The Odyssey",
+    author: "Homer (trans. Samuel Butler)",
+    desc: "The long homecoming. Cunning, endurance, hospitality, and the cost of wandering.",
+    links: [
+      { label: "Gutenberg (Butler)", url: "https://www.gutenberg.org/ebooks/1727" },
+      { label: "MIT Classics", url: "http://classics.mit.edu/Homer/odyssey.html" },
+      { label: "Standard Ebooks (Bryant)", url: "https://standardebooks.org/ebooks/homer/the-odyssey/william-cullen-bryant" }
+    ],
+    search: "odyssey homer odysseus butler bryant"
+  },
+  {
+    section: "epic",
+    k: "HOMER",
+    title: "The Iliad",
+    author: "Homer",
+    desc: "Rage, honor, mortality, and the cost of war. The poem that begins Western literature.",
+    links: [
+      { label: "Gutenberg", url: "https://www.gutenberg.org/ebooks/6130" },
+      { label: "MIT Classics", url: "http://classics.mit.edu/Homer/iliad.html" }
+    ],
+    search: "iliad homer achilles hector troy"
+  },
+  {
+    section: "epic",
+    k: "VIRGIL",
+    title: "The Aeneid",
+    author: "Virgil",
+    desc: "The Roman foundation epic. Duty, exile, and the price of empire.",
+    links: [
+      { label: "Gutenberg", url: "https://www.gutenberg.org/ebooks/228" },
+      { label: "MIT Classics", url: "http://classics.mit.edu/Virgil/aeneid.html" }
+    ],
+    search: "aeneid virgil aeneas rome"
+  },
+  {
+    section: "later",
+    k: "AUGUSTINE",
+    title: "Confessions",
+    author: "Augustine of Hippo",
+    desc: "The first great spiritual autobiography in the West. Memory, time, grace, and the restless heart.",
+    links: [
+      { label: "Gutenberg", url: "https://www.gutenberg.org/ebooks/3296" }
+    ],
+    search: "confessions augustine hippo autobiography grace"
+  },
+  {
+    section: "later",
+    k: "MILTON",
+    title: "Paradise Lost",
+    author: "John Milton",
+    desc: "The great English epic of the Fall. Ambition, free will, and the justification of the ways of God to men.",
+    links: [
+      { label: "Gutenberg", url: "https://www.gutenberg.org/ebooks/26" },
+      { label: "Standard Ebooks", url: "https://standardebooks.org/ebooks/john-milton/paradise-lost" }
+    ],
+    search: "paradise lost milton fall satan adam eve"
+  },
+  {
+    section: "later",
+    k: "AUSTEN",
+    title: "Pride and Prejudice",
+    author: "Jane Austen",
+    desc: "A perfect novel of manners, judgment, and moral growth. Included as a bridge from the classical tradition into the modern novel.",
+    links: [
+      { label: "Gutenberg", url: "https://www.gutenberg.org/ebooks/1342" },
+      { label: "Standard Ebooks", url: "https://standardebooks.org/ebooks/jane-austen/pride-and-prejudice" }
+    ],
+    search: "pride prejudice austen elizabeth darcy"
+  },
+  {
+    section: "later",
+    k: "DANTE",
+    title: "The Divine Comedy (Inferno)",
+    author: "Dante Alighieri",
+    desc: "The journey through Hell. Start here; the full Comedy can be added later as packs.",
+    links: [
+      { label: "Gutenberg (Longfellow)", url: "https://www.gutenberg.org/ebooks/1001" }
+    ],
+    search: "divine comedy dante inferno longfellow"
+  }
+];
+
+function cardHTML(b) {
+  const links = b.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`).join(" · ");
+  return `
+    <article class="card" data-search="${b.search.toLowerCase()} ${b.title.toLowerCase()} ${b.author.toLowerCase()}">
+      <div class="k">${b.k}</div>
+      <div class="big">${b.title}</div>
+      <div class="author">${b.author}</div>
+      <div class="desc">${b.desc}</div>
+      <div class="src">${links}</div>
+    </article>`;
+}
+
+function render() {
+  const phil = BOOKS.filter(b => b.section === "phil").map(cardHTML).join("");
+  const epic = BOOKS.filter(b => b.section === "epic").map(cardHTML).join("");
+  const later = BOOKS.filter(b => b.section === "later").map(cardHTML).join("");
+  document.getElementById("phil-grid").innerHTML = phil;
+  document.getElementById("epic-grid").innerHTML = epic;
+  document.getElementById("later-grid").innerHTML = later;
+  filter();
+}
+
+function filter() {
+  const needle = document.getElementById("q").value.trim().toLowerCase();
+  let visible = 0;
+  document.querySelectorAll(".card").forEach(card => {
+    const match = !needle || (card.dataset.search || "").includes(needle);
+    card.hidden = !match;
+    if (match) visible++;
+  });
+  document.querySelectorAll("[data-section]").forEach(sec => {
+    const cards = [...sec.querySelectorAll(".card")];
+    sec.hidden = cards.length > 0 && !cards.some(c => !c.hidden);
+  });
+  document.getElementById("status").textContent = needle
+    ? `${visible} result${visible === 1 ? "" : "s"}.`
+    : `${BOOKS.length} works on the shelf. Type to filter.`;
+}
+
+document.getElementById("q").addEventListener("input", filter);
+render();
+</script>
+</body>
+</html>
